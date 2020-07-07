@@ -1,4 +1,4 @@
-package com.syren.backen.syrenbackend.service.dataclass
+package com.syren.backen.syrenbackend.service.dataclass.records
 
 import java.util.*
 

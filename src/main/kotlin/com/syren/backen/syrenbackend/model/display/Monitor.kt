@@ -1,6 +1,7 @@
 package com.syren.backen.syrenbackend.model.display
 
-import com.syren.backen.syrenbackend.service.dataclass.MonitorRecord
+import com.syren.backen.syrenbackend.service.dataclass.info.MonitorInformation
+import com.syren.backen.syrenbackend.service.dataclass.records.MonitorRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter
@@ -21,4 +22,8 @@ class Monitor {
     private lateinit var currentStreamId: String
 
     private lateinit var formerStreams: MutableList<MonitorRecord>
+
+    private lateinit var defaultStreamId: String
+
+    private lateinit var information: MonitorInformation
 }

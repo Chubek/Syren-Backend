@@ -1,6 +1,7 @@
 package com.syren.backen.syrenbackend.model.stream
 
-import com.syren.backen.syrenbackend.service.dataclass.records.StreamRecord
+import com.syren.backen.syrenbackend.service.dataclass.NotificationAlert
+import com.syren.backen.syrenbackend.service.dataclass.records.OverrideRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter
@@ -13,14 +14,12 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@Document(collection = "stream.stream")
-class Stream {
+@Document(collection = "stream.override.message")
+class OverrideMessage {
     @Id
     private lateinit var id: String
 
-    private lateinit var scheduleIds: MutableList<String>
+    private lateinit var notificationAlert: NotificationAlert
 
-    private lateinit var records: MutableList<StreamRecord>
-
-    private lateinit var pathToTemplate: String
+    private lateinit var records: MutableList<OverrideRecord>
 }

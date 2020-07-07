@@ -1,7 +1,7 @@
 package com.syren.backen.syrenbackend.model.list
 
 import com.syren.backen.syrenbackend.service.dataclass.ScheduleDate
-import com.syren.backen.syrenbackend.service.dataclass.ScheduleRecord
+import com.syren.backen.syrenbackend.service.dataclass.records.ScheduleRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter

@@ -1,7 +1,7 @@
 package com.syren.backen.syrenbackend.model.list
 
 import com.syren.backen.syrenbackend.service.dataclass.ListItem
-import com.syren.backen.syrenbackend.service.dataclass.PlayListRecord
+import com.syren.backen.syrenbackend.service.dataclass.records.PlayListRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter

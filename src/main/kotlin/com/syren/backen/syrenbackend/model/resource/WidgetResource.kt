@@ -1,6 +1,5 @@
 package com.syren.backen.syrenbackend.model.resource
 
-import com.syren.backen.syrenbackend.service.dataclass.records.ResourceRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter
@@ -12,14 +11,12 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@Document(collection = "resource.html")
-class WebPageResource {
+@Document(collection = "playlist.playlist")
+class WidgetResource {
     @Id
     private lateinit var id: String
 
-    private lateinit var record: MutableList<ResourceRecord>
+    private lateinit var name: String
 
-    private lateinit var htmlFilePath: String
-
-
+    private lateinit var javaScriptFileLocation: String
 }

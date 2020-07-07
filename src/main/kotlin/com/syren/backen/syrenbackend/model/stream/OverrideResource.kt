@@ -1,26 +1,25 @@
 package com.syren.backen.syrenbackend.model.stream
 
-import com.syren.backen.syrenbackend.service.dataclass.records.StreamRecord
+import com.syren.backen.syrenbackend.service.dataclass.records.OverrideRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter
 import lombok.experimental.Accessors
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
+import java.util.*
 
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@Document(collection = "stream.stream")
-class Stream {
+@Document(collection = "stream.override.resource")
+class OverrideResource {
     @Id
-    private lateinit var id: String
+    private lateinit var id: UUID
 
-    private lateinit var scheduleIds: MutableList<String>
+    private lateinit var resourceId: String
 
-    private lateinit var records: MutableList<StreamRecord>
-
-    private lateinit var pathToTemplate: String
+    private lateinit var records: MutableList<OverrideRecord>
 }
