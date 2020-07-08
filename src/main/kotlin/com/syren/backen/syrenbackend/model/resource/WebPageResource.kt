@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor
 import lombok.Setter
 import lombok.experimental.Accessors
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.index.IndexDirection
+import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Getter
@@ -17,6 +19,7 @@ class WebPageResource {
     @Id
     private lateinit var id: String
 
+    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
     private lateinit var record: MutableList<ResourceRecord>
 
     private lateinit var htmlFilePath: String

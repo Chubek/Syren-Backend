@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor
 import lombok.Setter
 import lombok.experimental.Accessors
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.index.IndexDirection
+import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 
 
@@ -18,6 +20,7 @@ class Stream {
     @Id
     private lateinit var id: String
 
+    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
     private lateinit var scheduleIds: MutableList<String>
 
     private lateinit var records: MutableList<StreamRecord>

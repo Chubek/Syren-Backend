@@ -1,7 +1,5 @@
-package com.syren.backen.syrenbackend.model.resource
+package com.syren.backen.syrenbackend.model.moderator
 
-import com.syren.backen.syrenbackend.service.dataclass.info.FileInfo
-import com.syren.backen.syrenbackend.service.dataclass.records.ResourceRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter
@@ -16,16 +14,27 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@Document(collection = "resource.video")
-class VideoResource {
+@Document(collection = "user.moderator")
+class Moderator {
     @Id
     private lateinit var id: String
 
     @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-    private lateinit var record: MutableList<ResourceRecord>
+    private lateinit var email: String
 
-    private lateinit var fileInfo: FileInfo
+    private lateinit var password: String
 
-    private lateinit var metadata: Metadata
+    private lateinit var firstName: String
+
+    private lateinit var lastName: String
+
+    private lateinit var mobileNumber: String
+
+    fun getFullName(): String {
+        return "$firstName $lastName"
+    }
+
+
+
 
 }
