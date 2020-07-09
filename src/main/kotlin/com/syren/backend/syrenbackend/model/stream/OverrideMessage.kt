@@ -1,7 +1,7 @@
 package com.syren.backend.syrenbackend.model.stream
 
-import com.syren.backend.syrenbackend.service.dataclass.NotificationAlert
-import com.syren.backend.syrenbackend.service.dataclass.records.OverrideRecord
+import com.syren.backend.syrenbackend.subschema.dataclass.NotificationAlert
+import com.syren.backend.syrenbackend.subschema.dataclass.records.OverrideRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter
@@ -25,5 +25,4 @@ class OverrideMessage {
     @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
     private lateinit var notificationAlert: NotificationAlert
 
-    private lateinit var records: MutableList<OverrideRecord>
 }

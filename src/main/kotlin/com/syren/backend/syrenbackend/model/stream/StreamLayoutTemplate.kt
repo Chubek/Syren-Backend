@@ -1,6 +1,6 @@
 package com.syren.backend.syrenbackend.model.stream
 
-import com.syren.backend.syrenbackend.service.dataclass.info.TemplateInfo
+import com.syren.backend.syrenbackend.subschema.dataclass.info.TemplateInfo
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter

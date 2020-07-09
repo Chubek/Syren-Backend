@@ -1,7 +1,7 @@
 package com.syren.backend.syrenbackend.model.display
 
-import com.syren.backend.syrenbackend.service.dataclass.info.MonitorInformation
-import com.syren.backend.syrenbackend.service.dataclass.records.MonitorRecord
+import com.syren.backend.syrenbackend.subschema.dataclass.info.MonitorInformation
+import com.syren.backend.syrenbackend.subschema.dataclass.records.MonitorRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter

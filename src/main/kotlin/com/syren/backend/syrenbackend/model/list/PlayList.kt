@@ -1,7 +1,7 @@
 package com.syren.backend.syrenbackend.model.list
 
-import com.syren.backend.syrenbackend.service.dataclass.ListItem
-import com.syren.backend.syrenbackend.service.dataclass.records.PlayListRecord
+import com.syren.backend.syrenbackend.subschema.dataclass.ListItem
+import com.syren.backend.syrenbackend.subschema.dataclass.records.PlayListRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter
@@ -23,10 +23,5 @@ class PlayList {
 
     @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
     private lateinit var items: MutableList<ListItem>
-
-    private lateinit var records: MutableList<PlayListRecord>
-
-
-
 
 }

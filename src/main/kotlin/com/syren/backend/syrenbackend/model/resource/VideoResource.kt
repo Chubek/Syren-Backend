@@ -1,7 +1,7 @@
 package com.syren.backend.syrenbackend.model.resource
 
-import com.syren.backend.syrenbackend.service.dataclass.info.FileInfo
-import com.syren.backend.syrenbackend.service.dataclass.records.ResourceRecord
+import com.syren.backend.syrenbackend.subschema.dataclass.info.FileInfo
+import com.syren.backend.syrenbackend.subschema.dataclass.records.ResourceRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter

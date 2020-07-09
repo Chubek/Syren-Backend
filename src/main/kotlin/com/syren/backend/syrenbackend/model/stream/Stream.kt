@@ -1,6 +1,6 @@
 package com.syren.backend.syrenbackend.model.stream
 
-import com.syren.backend.syrenbackend.service.dataclass.records.StreamRecord
+import com.syren.backend.syrenbackend.subschema.dataclass.records.StreamRecord
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter
@@ -21,9 +21,7 @@ class Stream {
     private lateinit var id: String
 
     @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-    private lateinit var scheduleIds: MutableList<String>
-
-    private lateinit var records: MutableList<StreamRecord>
+    private lateinit var playlistIds: MutableList<String>
 
     private lateinit var pathToTemplate: String
 }
