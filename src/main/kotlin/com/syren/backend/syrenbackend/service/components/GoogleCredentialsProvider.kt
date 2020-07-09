@@ -9,10 +9,10 @@ import java.io.FileInputStream
 class GoogleCredentialsProvider {
 
     companion object {
-        @Value("\${GoogleAppCredFile}")
-        private lateinit var GoogleAppCredFile: String
+        @Value("\${googleAppCredFile}")
+        private lateinit var googleAppCredFile: String
 
-        private val credentialsStream = FileInputStream(GoogleAppCredFile)
+        private val credentialsStream = FileInputStream(googleAppCredFile)
 
         val credentials = GoogleCredentials.fromStream(credentialsStream)
 

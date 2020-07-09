@@ -9,6 +9,7 @@ import com.syren.backend.syrenbackend.model.resource.*
 import com.syren.backend.syrenbackend.model.stream.OverrideMessage
 import com.syren.backend.syrenbackend.model.stream.OverrideResource
 import com.syren.backend.syrenbackend.model.stream.Stream
+import com.syren.backend.syrenbackend.model.stream.StreamLayoutTemplate
 import org.modelmapper.ModelMapper
 
 fun monitorDtoMapper(monitor: Monitor) {
@@ -57,4 +58,8 @@ fun overrideResourceDtoMapper(overrideResource: OverrideResource) {
 
 fun streamDtoMapper(stream: Stream) {
     return ModelMapper().map(stream, StreamDto::class)
+}
+
+fun streamLayoutTemplateMapper(layoutTemplate: StreamLayoutTemplate) {
+    return ModelMapper().map(layoutTemplate, StreamLayoutTemplateDto::class)
 }

@@ -5,6 +5,7 @@ import com.syren.backend.syrenbackend.service.dataclass.NotificationAlert
 import com.syren.backend.syrenbackend.service.dataclass.ScheduleDate
 import com.syren.backend.syrenbackend.service.dataclass.info.FileInfo
 import com.syren.backend.syrenbackend.service.dataclass.info.MonitorInformation
+import com.syren.backend.syrenbackend.service.dataclass.info.TemplateInfo
 import com.syren.backend.syrenbackend.service.dataclass.records.*
 import java.util.*
 
@@ -20,3 +21,4 @@ data class WidgetResourceDto(val id: String, val record: MutableList<ResourceRec
 data class OverrideMessageDto(val id: String, val name: String, val javaScriptFileLocation: String)
 data class OverrideResourceDto(val id: String, val notificationAlert: NotificationAlert, val records: MutableList<OverrideRecord>)
 data class StreamDto(val id: String, val scheduleIds: MutableList<String>, val records: MutableList<StreamRecord>, val pathToTemplate: String)
+data class StreamLayoutTemplateDto(val id: String, val templateInfo: TemplateInfo, val fileLocation: String)

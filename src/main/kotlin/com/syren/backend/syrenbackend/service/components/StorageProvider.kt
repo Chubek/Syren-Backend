@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component
 class StorageProvider {
     companion object {
 
-        @Value("\${ProjectId}")
-        private lateinit var ProjectId: String
+        @Value("\${projectId}")
+        private lateinit var projectId: String
 
         var storage = StorageOptions.newBuilder().setCredentials(GoogleCredentialsProvider.credentials)
-                .setProjectId(ProjectId).build().service
+                .setProjectId(projectId).build().service
     }
 }
