@@ -2,14 +2,17 @@ package com.syren.backend.syrenbackend.dao.intf
 
 import com.syren.backend.syrenbackend.dto.modeldataclass.ScheduleDto
 import com.syren.backend.syrenbackend.model.list.Schedule
+import java.util.*
 
-interface ScheduleServiceInterface {
+interface ScheduleDaoInterface {
 
     fun createSchedule(scheduleDto: ScheduleDto): String
 
-    fun updateSchedule(id: String, scheduleDto: ScheduleDto)
+    fun updateSchedule(scheduleDto: ScheduleDto)
 
-    fun getSchedule(id: String): ScheduleDto
+    fun findByPlaylistId(playListId: String): ScheduleDto
+
+    fun getSchedule(id: String): Optional<ScheduleDto>
 
     fun deleteSchedule(id: String)
 

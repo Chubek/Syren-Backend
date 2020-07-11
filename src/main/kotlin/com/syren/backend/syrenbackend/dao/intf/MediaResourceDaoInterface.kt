@@ -3,7 +3,7 @@ package com.syren.backend.syrenbackend.dao.intf
 import java.util.*
 
 
-interface MediaResourceServiceInterface<T> {
+interface MediaResourceDaoInterface<T> {
 
     fun createResource(resourceDto: T): String
 

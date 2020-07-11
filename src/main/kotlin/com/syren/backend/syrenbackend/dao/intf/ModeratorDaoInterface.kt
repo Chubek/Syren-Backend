@@ -3,7 +3,7 @@ package com.syren.backend.syrenbackend.dao.intf
 import com.syren.backend.syrenbackend.dto.modeldataclass.ModeratorDto
 import com.syren.backend.syrenbackend.model.moderator.Moderator
 
-interface ModeratorServiceInterface {
+interface ModeratorDaoInterface {
 
     fun registerModerator(moderatorDto: ModeratorDto): String
 

@@ -1,12 +1,12 @@
 package com.syren.backend.syrenbackend.dao.impl
 
-import com.syren.backend.syrenbackend.dao.intf.MediaResourceServiceInterface
+import com.syren.backend.syrenbackend.dao.intf.MediaResourceDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.VideoResourceDto
 import com.syren.backend.syrenbackend.repository.resource.VideoResourceRepository
 import org.springframework.beans.factory.annotation.Autowired
 import java.util.*
 
-class VideoResourceService: MediaResourceServiceInterface<VideoResourceDto> {
+class VideoResourceDao: MediaResourceDaoInterface<VideoResourceDto> {
 
     @Autowired
     private lateinit var videoResourceRepository: VideoResourceRepository

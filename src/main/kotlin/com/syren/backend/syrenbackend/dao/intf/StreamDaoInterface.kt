@@ -1,14 +1,15 @@
 package com.syren.backend.syrenbackend.dao.intf
 
 import com.syren.backend.syrenbackend.dto.modeldataclass.StreamDto
+import java.util.*
 
-interface StreamServiceInterface {
+interface StreamDaoInterface {
 
     fun createStream(streamDto: StreamDto): String
 
-    fun appendPlaylists(id: String, playListId: String)
+    fun updateStream(streamDto: StreamDto)
 
-    fun changeStreamLayoutFile(id: String, layoutLocation: String)
+    fun getStream(id: String): Optional<StreamDto>
 
     fun deleteStream(id: String)
 }

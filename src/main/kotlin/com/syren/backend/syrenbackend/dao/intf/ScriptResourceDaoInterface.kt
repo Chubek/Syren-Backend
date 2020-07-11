@@ -2,7 +2,7 @@ package com.syren.backend.syrenbackend.dao.intf
 
 import java.util.*
 
-interface ScriptResourceServiceInterface<T> {
+interface ScriptResourceDaoInterface<T> {
 
     fun createScriptResource(scriptResourceDto: T): String
 

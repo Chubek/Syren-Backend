@@ -5,7 +5,7 @@ import com.syren.backend.syrenbackend.model.list.PlayList
 import com.syren.backend.syrenbackend.subschema.dataclass.ListItem
 import com.syren.backend.syrenbackend.subschema.dataclass.records.PlayListRecord
 
-interface PlayListServiceInterface {
+interface PlayListDaoInterface {
 
     fun createPlayList(playListDto: PlayListDto): String
 

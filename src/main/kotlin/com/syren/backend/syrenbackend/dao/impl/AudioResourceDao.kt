@@ -1,12 +1,12 @@
 package com.syren.backend.syrenbackend.dao.impl
 
-import com.syren.backend.syrenbackend.dao.intf.MediaResourceServiceInterface
+import com.syren.backend.syrenbackend.dao.intf.MediaResourceDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.AudioResourceDto
 import com.syren.backend.syrenbackend.repository.resource.AudioResourceRepository
 import org.springframework.beans.factory.annotation.Autowired
 import java.util.*
 
-class AudioResourceService: MediaResourceServiceInterface<AudioResourceDto> {
+class AudioResourceDao: MediaResourceDaoInterface<AudioResourceDto> {
 
     @Autowired
     private lateinit var audioResourceRepository: AudioResourceRepository

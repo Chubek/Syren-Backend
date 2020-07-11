@@ -3,7 +3,7 @@ package com.syren.backend.syrenbackend.dao.intf
 import com.syren.backend.syrenbackend.dto.modeldataclass.OverrideMessageDto
 import com.syren.backend.syrenbackend.dto.modeldataclass.OverrideResourceDto
 
-interface OverrideServiceInterface {
+interface OverrideDaoInterface {
 
     fun createOverrideMessage(overrideMessageDto: OverrideMessageDto): String
 
