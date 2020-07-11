@@ -6,9 +6,9 @@ interface StreamServiceInterface {
 
     fun createStream(streamDto: StreamDto): String
 
-    fun appendPlaylists(id: String, playListId: String): Void
+    fun appendPlaylists(id: String, playListId: String)
 
-    fun changeStreamLayoutFile(id: String, layoutLocation: String): Void
+    fun changeStreamLayoutFile(id: String, layoutLocation: String)
 
-    fun deleteStream(id: String): Void
+    fun deleteStream(id: String)
 }

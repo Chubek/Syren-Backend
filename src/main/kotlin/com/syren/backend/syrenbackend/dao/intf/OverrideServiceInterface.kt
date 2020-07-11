@@ -9,12 +9,12 @@ interface OverrideServiceInterface {
 
     fun createOverrideResource(overrideResourceDto: OverrideResourceDto): String
 
-    fun updateOverrideMessage(id: String, overrideMessageDto: OverrideMessageDto): Void
+    fun updateOverrideMessage(id: String, overrideMessageDto: OverrideMessageDto)
 
-    fun updateOverrideResource(id: String, overrideResourceDto: OverrideResourceDto): Void
+    fun updateOverrideResource(id: String, overrideResourceDto: OverrideResourceDto)
 
-    fun deleteOverrideMessage(id: String): Void
+    fun deleteOverrideMessage(id: String)
 
-    fun deleteOverrideResource(id: String): Void
+    fun deleteOverrideResource(id: String)
 
 }

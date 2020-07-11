@@ -7,7 +7,7 @@ interface ModeratorServiceInterface {
 
     fun registerModerator(moderatorDto: ModeratorDto): String
 
-    fun authModerator(mobileNumber: String, password: String): Moderator
+    fun authModerator(mobileNumber: String, password: String): ModeratorDto
 
     fun updateModerator(moderatorDto: ModeratorDto, token: String)
 
@@ -15,6 +15,6 @@ interface ModeratorServiceInterface {
 
     fun verifyAccessPhrase(int: String, phraseToken: String): Boolean
 
-    fun deleteModerator(id: String): Void
+    fun deleteModerator(id: String)
 
 }

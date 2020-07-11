@@ -1,15 +1,15 @@
 package com.syren.backend.syrenbackend.repository.moderator
 
-import com.syren.backend.syrenbackend.model.moderator.Moderator
+import com.syren.backend.syrenbackend.dto.modeldataclass.ModeratorDto
 import org.springframework.data.mongodb.repository.MongoRepository
 
-interface ModeratorRepository: MongoRepository<Moderator, String> {
+interface ModeratorRepository: MongoRepository<ModeratorDto, String> {
 
-    fun findByEmail(email: String): Moderator
+    fun findByEmail(email: String): ModeratorDto
 
-    fun findByMobileNumber(mobileNumber: String): Moderator
+    fun findByMobileNumber(mobileNumber: String): ModeratorDto
 
-    fun findByFirstName(firstName: String): Moderator
+    fun findByFirstName(firstName: String): ModeratorDto
 
-    fun findByLastName(lastName: String): Moderator
+    fun findByLastName(lastName: String): ModeratorDto
 }

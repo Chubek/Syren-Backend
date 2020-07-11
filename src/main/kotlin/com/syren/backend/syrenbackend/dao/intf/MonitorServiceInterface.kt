@@ -8,15 +8,15 @@ interface MonitorServiceInterface {
 
     fun createMonitor(monitorDto: MonitorDto): String
 
-    fun setCurrentStream(id: String, streamId: String): Void
+    fun setCurrentStream(id: String, streamId: String)
 
-    fun setDefaultStream(id: String, defaultStreamId: String): Void
+    fun setDefaultStream(id: String, defaultStreamId: String)
 
-    fun updateInformation(id: String, monitorInfo: MonitorInfo): Void
+    fun updateInformation(id: String, monitorInfo: MonitorInfo)
 
-    fun getMonitor(id: String): Monitor
+    fun getMonitor(id: String): MonitorDto
 
-    fun deleteMonitor(id: String): Void
+    fun deleteMonitor(id: String)
 
 
 }

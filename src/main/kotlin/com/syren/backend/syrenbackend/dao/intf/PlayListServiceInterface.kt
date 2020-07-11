@@ -9,10 +9,10 @@ interface PlayListServiceInterface {
 
     fun createPlayList(playListDto: PlayListDto): String
 
-    fun addItem(id: String, listItem: ListItem): Void
+    fun addItem(id: String, listItem: ListItem)
 
-    fun getPlayList(id: String): PlayList
+    fun getPlayList(id: String): PlayListDto
 
-    fun deletePlayList(id: String): Void
+    fun deletePlayList(id: String)
 
 }

@@ -7,10 +7,10 @@ interface ScheduleServiceInterface {
 
     fun createSchedule(scheduleDto: ScheduleDto): String
 
-    fun updateSchedule(id: String, scheduleDto: ScheduleDto): Void
+    fun updateSchedule(id: String, scheduleDto: ScheduleDto)
 
-    fun getSchedule(id: String): Schedule
+    fun getSchedule(id: String): ScheduleDto
 
-    fun deleteSchedule(id: String): Void
+    fun deleteSchedule(id: String)
 
 }

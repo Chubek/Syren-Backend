@@ -1,14 +1,14 @@
 package com.syren.backend.syrenbackend.repository.resource
 
-import com.syren.backend.syrenbackend.model.resource.*
+import com.syren.backend.syrenbackend.dto.modeldataclass.*
 import org.springframework.data.mongodb.repository.MongoRepository
 
-interface AudioResourceRepository: MongoRepository<AudioResource, String>
+interface AudioResourceRepository: MongoRepository<AudioResourceDto, String>
 
-interface VideoResourceRepository: MongoRepository<VideoResource, String>
+interface VideoResourceRepository: MongoRepository<VideoResourceDto, String>
 
-interface ImageResourceRepository: MongoRepository<ImageResource, String>
+interface ImageResourceRepository: MongoRepository<ImageResourceDto, String>
 
-interface WebPageResourceRepository: MongoRepository<WebPageResource, String>
+interface WebPageResourceRepository: MongoRepository<WebPageResourceDto, String>
 
-interface WidgetResourceRepository: MongoRepository<WidgetResource, String>
+interface WidgetResourceRepository: MongoRepository<WidgetResourceDto, String>

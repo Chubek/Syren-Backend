@@ -1,6 +1,6 @@
 package com.syren.backend.syrenbackend.repository.stream
 
-import com.syren.backend.syrenbackend.model.stream.OverrideResource
+import com.syren.backend.syrenbackend.dto.modeldataclass.OverrideResourceDto
 import org.springframework.data.mongodb.repository.MongoRepository
 
-interface OverrideResourceRepository: MongoRepository<OverrideResource, String>
+interface OverrideResourceRepository: MongoRepository<OverrideResourceDto, String>

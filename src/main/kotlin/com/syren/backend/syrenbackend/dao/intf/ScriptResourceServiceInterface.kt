@@ -1,13 +1,15 @@
 package com.syren.backend.syrenbackend.dao.intf
 
-interface ScriptResourceServiceInterface<T, R> {
+import java.util.*
+
+interface ScriptResourceServiceInterface<T> {
 
     fun createScriptResource(scriptResourceDto: T): String
 
-    fun updateScriptResource(id: String, scriptResourceDto: T): Void
+    fun updateScriptResource(id: String, scriptResourceDto: T)
 
-    fun getScriptResource(id: String): R
+    fun getScriptResource(id: String): Optional<T>
 
-    fun deleteScriptResource(id: String): Void
+    fun deleteScriptResource(id: String)
 
 }

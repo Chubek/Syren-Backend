@@ -2,23 +2,28 @@ package com.syren.backend.syrenbackend.dao.impl
 
 import com.syren.backend.syrenbackend.dao.intf.MediaResourceServiceInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.AudioResourceDto
-import com.syren.backend.syrenbackend.model.resource.AudioResource
+import com.syren.backend.syrenbackend.repository.resource.AudioResourceRepository
+import org.springframework.beans.factory.annotation.Autowired
+import java.util.*
 
-class AudioResourceService: MediaResourceServiceInterface<AudioResourceDto, AudioResource> {
+class AudioResourceService: MediaResourceServiceInterface<AudioResourceDto> {
+
+    @Autowired
+    private lateinit var audioResourceRepository: AudioResourceRepository
 
     override fun createResource(resourceDto: AudioResourceDto): String {
-        TODO("Not yet implemented")
+        return audioResourceRepository.save(resourceDto).id
     }
 
-    override fun updateResource(resourceDto: AudioResourceDto): Void {
-        TODO("Not yet implemented")
+    override fun updateResource(resourceDto: AudioResourceDto) {
+        audioResourceRepository.save(resourceDto)
     }
 
-    override fun deleteResource(resourceDto: AudioResourceDto): Void {
-        TODO("Not yet implemented")
+    override fun deleteResource(id: String) {
+        audioResourceRepository.deleteById(id)
     }
 
-    override fun getResource(id: String): AudioResource {
-        TODO("Not yet implemented")
+    override fun getResource(id: String): Optional<AudioResourceDto> {
+        return audioResourceRepository.findById(id)
     }
 }
