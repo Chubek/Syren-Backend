@@ -1,4 +1,4 @@
-package com.syren.backend.syrenbackend.dao
+package com.syren.backend.syrenbackend.dao.intf
 
 import com.syren.backend.syrenbackend.dto.modeldataclass.MonitorDto
 import java.lang.management.MonitorInfo

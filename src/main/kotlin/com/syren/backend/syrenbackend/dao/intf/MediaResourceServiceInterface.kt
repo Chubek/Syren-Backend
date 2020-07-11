@@ -1,4 +1,4 @@
-package com.syren.backend.syrenbackend.dao
+package com.syren.backend.syrenbackend.dao.intf
 
 
 interface MediaResourceServiceInterface<T, R> {
