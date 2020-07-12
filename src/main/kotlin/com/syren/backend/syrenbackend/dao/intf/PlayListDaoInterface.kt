@@ -4,14 +4,15 @@ import com.syren.backend.syrenbackend.dto.modeldataclass.PlayListDto
 import com.syren.backend.syrenbackend.model.list.PlayList
 import com.syren.backend.syrenbackend.subschema.dataclass.ListItem
 import com.syren.backend.syrenbackend.subschema.dataclass.records.PlayListRecord
+import java.util.*
 
 interface PlayListDaoInterface {
 
     fun createPlayList(playListDto: PlayListDto): String
 
-    fun addItem(id: String, listItem: ListItem)
+    fun updatePlaylist(playListDto: PlayListDto)
 
-    fun getPlayList(id: String): PlayListDto
+    fun getPlayList(id: String): Optional<PlayListDto>
 
     fun deletePlayList(id: String)
 

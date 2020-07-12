@@ -2,18 +2,23 @@ package com.syren.backend.syrenbackend.dao.intf
 
 import com.syren.backend.syrenbackend.dto.modeldataclass.ModeratorDto
 import com.syren.backend.syrenbackend.model.moderator.Moderator
+import java.util.*
 
 interface ModeratorDaoInterface {
 
-    fun registerModerator(moderatorDto: ModeratorDto): String
+    fun createModerator(moderatorDto: ModeratorDto): String
 
-    fun authModerator(mobileNumber: String, password: String): ModeratorDto
+    fun getModerator(id: String): Optional<ModeratorDto>
 
-    fun updateModerator(moderatorDto: ModeratorDto, token: String)
+    fun updateModerator(moderatorDto: ModeratorDto)
 
-    fun setAccessPhrase(id: String, accessPhrase: String): String
+    fun findByEmail(email: String): ModeratorDto
 
-    fun verifyAccessPhrase(int: String, phraseToken: String): Boolean
+    fun findByMobileNumber(mobileNumber: String): ModeratorDto
+
+    fun findByFirstName(firstName: String): ModeratorDto
+
+    fun findByLastName(lastName: String): ModeratorDto
 
     fun deleteModerator(id: String)
 
