@@ -4,8 +4,11 @@ import com.syren.backend.syrenbackend.dao.intf.StreamDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.StreamDto
 import com.syren.backend.syrenbackend.repository.stream.StreamRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import java.util.*
 
+
+@Component
 class StreamDao: StreamDaoInterface {
 
     @Autowired

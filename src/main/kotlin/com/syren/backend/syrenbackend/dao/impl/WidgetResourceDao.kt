@@ -4,8 +4,11 @@ import com.syren.backend.syrenbackend.dao.intf.ScriptResourceDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.WidgetResourceDto
 import com.syren.backend.syrenbackend.repository.resource.WidgetResourceRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import java.util.*
 
+
+@Component
 class WidgetResourceDao: ScriptResourceDaoInterface<WidgetResourceDto> {
     
     @Autowired

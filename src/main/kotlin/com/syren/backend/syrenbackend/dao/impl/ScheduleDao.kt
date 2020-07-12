@@ -4,8 +4,11 @@ import com.syren.backend.syrenbackend.dao.intf.ScheduleDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.ScheduleDto
 import com.syren.backend.syrenbackend.repository.list.ScheduleRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import java.util.*
 
+
+@Component
 class ScheduleDao: ScheduleDaoInterface {
 
     @Autowired

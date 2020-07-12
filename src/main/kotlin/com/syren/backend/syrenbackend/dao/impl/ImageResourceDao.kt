@@ -4,8 +4,11 @@ import com.syren.backend.syrenbackend.dao.intf.MediaResourceDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.ImageResourceDto
 import com.syren.backend.syrenbackend.repository.resource.ImageResourceRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import java.util.*
 
+
+@Component
 class ImageResourceDao: MediaResourceDaoInterface<ImageResourceDto> {
 
     @Autowired
