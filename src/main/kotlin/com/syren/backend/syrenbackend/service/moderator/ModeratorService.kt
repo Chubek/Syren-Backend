@@ -6,6 +6,7 @@ import com.syren.backend.syrenbackend.dto.mapper.DtoMappers
 import com.syren.backend.syrenbackend.dto.modeldataclass.ModeratorDto
 import com.syren.backend.syrenbackend.model.moderator.Moderator
 import com.syren.backend.syrenbackend.service.security.JWT
+import com.syren.backend.syrenbackend.subschema.LoginReturn
 import org.apache.catalina.core.ApplicationContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.ComponentScan
@@ -47,12 +48,12 @@ class ModeratorService {
 
         val moderator = Moderator(email = email, firstName = firstName, lastName = lastName, password = hash, mobileNumber = mobileNumber)
 
-        val moderatorDto = dtoMappers.moderatorMapper(moderator)
+        val moderatorDto = dtoMappers.moderatorMapperDto(moderator)
 
         return moderatorDao.createModerator(moderatorDto)
     }
 
-    fun authModerator(loginString: String, password: String): Moderator {
+    fun authModerator(loginString: String, password: String): LoginReturn {
 
         lateinit var moderatorDto: ModeratorDto
 
@@ -73,7 +74,9 @@ class ModeratorService {
             throw e
         }
 
-        return dtoMappers.moderatorMapperEntity(moderatorDto)
+        val token = jwt.createJwt(moderatorDto.id)
+
+        return LoginReturn(dtoMappers.moderatorMapperEntity(moderatorDto), token)
     }
 
 }
