@@ -4,10 +4,12 @@ import com.syren.backend.syrenbackend.dao.intf.MediaResourceDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.AudioResourceDto
 import com.syren.backend.syrenbackend.repository.resource.AudioResourceRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.stereotype.Component
 import java.util.*
 
 @Component
+@ComponentScan
 class AudioResourceDao: MediaResourceDaoInterface<AudioResourceDto> {
 
     @Autowired

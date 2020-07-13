@@ -4,11 +4,13 @@ import com.syren.backend.syrenbackend.dao.intf.OverrideResourceDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.OverrideResourceDto
  import com.syren.backend.syrenbackend.repository.stream.OverrideResourceRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.stereotype.Component
 import java.util.*
 
 
 @Component
+@ComponentScan
 class OverrideResourceDao: OverrideResourceDaoInterface {
 
     @Autowired

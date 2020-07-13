@@ -31,39 +31,6 @@ class AppConfig {
         return modelMapper
     }
 
-    @Value("\${jwtSecret}")
-    private lateinit var jwtSecret: String
-
-    @Bean
-    fun createJwt(subject: String): String {
-        try {
-
-            val algorithm = Algorithm.HMAC256(jwtSecret)
-
-            return JWT.create()
-                    .withSubject(subject)
-                    .withIssuer("auth0")
-                    .sign(algorithm)
-        } catch (e: JWTCreationException) {
-            throw e
-        }
-    }
-
-    @Bean
-    fun decodeJwt(jwt: String): String {
-        try {
-            val algorithm = Algorithm.HMAC256(jwtSecret)
-
-            val verifier = JWT.require(algorithm)
-                    .withIssuer("auth0")
-                    .build()
-
-            return verifier.verify(jwt).toString()
-        } catch (e: JWTVerificationException) {
-            throw e
-        }
-    }
-
 
     @Bean
     fun passwordEncoder(): PasswordEncoder? {

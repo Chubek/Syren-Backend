@@ -4,11 +4,13 @@ import com.syren.backend.syrenbackend.dao.intf.PlayListDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.PlayListDto
 import com.syren.backend.syrenbackend.repository.list.PlayListRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.stereotype.Component
 import java.util.*
 
 
 @Component
+@ComponentScan
 class PlayListDao: PlayListDaoInterface {
 
     @Autowired

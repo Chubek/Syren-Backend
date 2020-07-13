@@ -10,18 +10,11 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.index.IndexDirection
 import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
+import java.util.*
 
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Accessors(chain = true)
 @Document(collection = "playlist.playlist")
-class PlayList {
-    @Id
-    private lateinit var id: String
+data class PlayList(@Id val id: String = UUID.randomUUID().toString(),
+                    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) val items: MutableList<ListItem>)
 
-    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-    private lateinit var items: MutableList<ListItem>
-
-}
