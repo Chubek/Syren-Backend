@@ -15,9 +15,9 @@ import java.util.*
 
 @Accessors(chain = true)
 @Document(collection = "display.monitor")
-data class Monitor(@Id val id: String = UUID.randomUUID().toString(), val currentStreamId: String,
+data class Monitor(@Id val id: String = UUID.randomUUID().toString(), val currentStreamId: String = "",
                    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)  val formerStreams: MutableList<MonitorRecord>,
-                   val defaultStreamId: String,
+                   val defaultStreamId: String = "",
                    val accessPhrase: String,
                    val information: MonitorInformation
 )
