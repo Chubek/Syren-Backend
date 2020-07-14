@@ -12,9 +12,7 @@ import com.syren.backend.syrenbackend.subschema.dataclass.info.MonitorInformatio
 import com.syren.backend.syrenbackend.subschema.dataclass.info.monitor.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.ComponentScan
-import org.springframework.stereotype.Repository
 import org.springframework.stereotype.Service
-import java.util.*
 
 
 @Service
@@ -50,21 +48,120 @@ class MonitorService {
 
     }
 
-    fun updateMonitorBasicInfo(id: String, tags: MutableList<String>, monitorOrientation: MonitorOrientation) {
+    fun updateMonitorBasicInfo(id: String, tags: MutableList<String>, monitorOrientation: MonitorOrientation, monitorStatus: MonitorStatus) {
 
         val monitorDto = monitorRepository.findById(id)
 
-        var monitor = dtoMappers.monitorMapperEntity(monitorDto.orElse())
+        var monitor = dtoMappers.monitorMapperEntity(monitorDto.get())
 
         val basicMonitorInfo = BasicMonitorInfo(tags, monitorOrientation)
 
         monitor.information.basicMonitorInfo = basicMonitorInfo
+        monitor.information.status = monitorStatus
 
         val newDto = dtoMappers.monitorMapperDto(monitor)
 
         monitorDao.updateMonitor(newDto)
 
     }
+
+    fun updateMonitorLocation(id: String, city: String, lat: Double, lng: Double) {
+
+        val monitorDto = monitorRepository.findById(id)
+
+        var monitor = dtoMappers.monitorMapperEntity(monitorDto.get())
+
+        val monitorLocation = MonitorLocation(city, lat, lng)
+
+        monitor.information.location = monitorLocation
+
+        val newDto = dtoMappers.monitorMapperDto(monitor)
+
+        monitorDao.updateMonitor(newDto)
+
+    }
+
+    fun updateMonitorNetwork(id: String, wifiEnabled: Boolean, networkName: String, wifiMode: WifiMode, hidden: Boolean, checkSum: String) {
+
+        val monitorDto = monitorRepository.findById(id)
+
+        var monitor = dtoMappers.monitorMapperEntity(monitorDto.get())
+
+        val monitorNetwork = MonitorNetwork(wifiEnabled, networkName, wifiMode, hidden, checkSum)
+
+        monitor.information.monitorNetwork = monitorNetwork
+
+        val newDto = dtoMappers.monitorMapperDto(monitor)
+
+        monitorDao.updateMonitor(newDto)
+
+    }
+
+    fun updateMonitorSoundDisplay(id: String, width: Int, height: Int, refreshRate: Double, colorDepth: Int, soundOutput: MonitorSoundOutput, volume: Int) {
+
+        val monitorDto = monitorRepository.findById(id)
+
+        var monitor = dtoMappers.monitorMapperEntity(monitorDto.get())
+
+        val monitorResolution = MonitorResolution(width, height, refreshRate, colorDepth)
+
+        val monitorDisplaySound = MonitorSoundDisplay(monitorResolution, soundOutput, volume)
+
+        monitor.information.soundAndDisplay = monitorDisplaySound
+
+        val newDto = dtoMappers.monitorMapperDto(monitor)
+
+        monitorDao.updateMonitor(newDto)
+
+    }
+
+    fun updateMonitorAccessPhrase(id: String, accessPhrase: String) {
+
+        val monitorDto = monitorRepository.findById(id)
+
+        var monitor = dtoMappers.monitorMapperEntity(monitorDto.get())
+
+        monitor.accessPhrase = accessPhrase
+
+        val newDto = dtoMappers.monitorMapperDto(monitor)
+
+        monitorDao.updateMonitor(newDto)
+
+    }
+
+    fun updateMonitorCurrentStream(id: String, currentStreamId: String) {
+
+        val monitorDto = monitorRepository.findById(id)
+
+        var monitor = dtoMappers.monitorMapperEntity(monitorDto.get())
+
+        monitor.currentStreamId = currentStreamId
+
+        val newDto = dtoMappers.monitorMapperDto(monitor)
+
+        monitorDao.updateMonitor(newDto)
+
+    }
+
+    fun updateMonitorDefaultStream(id: String, defaultStreamId: String) {
+
+        val monitorDto = monitorRepository.findById(id)
+
+        var monitor = dtoMappers.monitorMapperEntity(monitorDto.get())
+
+        monitor.defaultStreamId = defaultStreamId
+
+        val newDto = dtoMappers.monitorMapperDto(monitor)
+
+        monitorDao.updateMonitor(newDto)
+
+    }
+
+
+
+
+
+
 
 
 
