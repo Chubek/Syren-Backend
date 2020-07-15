@@ -24,12 +24,10 @@ class DtoMappers {
     fun moderatorMapperDto(moderator: Moderator): ModeratorDto {
         return modelMapper.map(moderator, ModeratorDto::class.java)
     }
-    fun audioResourceMapperDto(audioResource: AudioResource): AudioResourceDto {
-        return modelMapper.map(audioResource, AudioResourceDto::class.java)
+    fun mediaResourceMapperDto(mediaResource: MediaResource): MediaResourceDto {
+        return modelMapper.map(mediaResource, MediaResourceDto::class.java)
     }
-    fun imageResourceMapperDto(imageResource: ImageResource): ImageResourceDto {
-        return modelMapper.map(imageResource, ImageResourceDto::class.java)
-    }
+
     fun monitorMapperDto(monitor: Monitor): MonitorDto {
         return modelMapper.map(monitor, MonitorDto::class.java)
     }
@@ -48,9 +46,7 @@ class DtoMappers {
     fun streamMapperDto(stream: Stream): StreamDto {
         return modelMapper.map(stream, StreamDto::class.java)
     }
-    fun videoResourceMapperDto(videoResource: VideoResource): VideoResourceDto {
-        return modelMapper.map(videoResource, VideoResourceDto::class.java)
-    }
+
     fun webPageResourceMapperDto(webPageResource: WebPageResource): WebPageResourceDto {
         return modelMapper.map(webPageResource, WebPageResourceDto::class.java)
     }
@@ -58,12 +54,6 @@ class DtoMappers {
         return modelMapper.map(widgetResource, WidgetResourceDto::class.java)
     }
 
-    fun audioResourceMapperEntity(audioResourceDto: AudioResourceDto): AudioResource {
-        return modelMapper.map(audioResourceDto, AudioResource::class.java)
-    }
-    fun imageResourceMapperEntity(imageResourceDto: ImageResourceDto): ImageResource {
-        return modelMapper.map(imageResourceDto, ImageResource::class.java)
-    }
     fun monitorMapperEntity(monitorDto: MonitorDto): Monitor {
         return modelMapper.map(monitorDto, Monitor::class.java)
     }
@@ -85,8 +75,8 @@ class DtoMappers {
     fun streamMapperEntity(streamDto: StreamDto): Stream {
         return modelMapper.map(streamDto, Stream::class.java)
     }
-    fun videoResourceMapperEntity(videoResourceDto: VideoResourceDto): VideoResource {
-        return modelMapper.map(videoResourceDto, VideoResource::class.java)
+    fun mediaResourceMapperEntity(mediaResourceDto: MediaResourceDto): MediaResource {
+        return modelMapper.map(mediaResourceDto, MediaResource::class.java)
     }
     fun webPageResourceMapperEntity(webPageResourceDto: WebPageResourceDto): WebPageResource {
         return modelMapper.map(webPageResourceDto, WebPageResource::class.java)

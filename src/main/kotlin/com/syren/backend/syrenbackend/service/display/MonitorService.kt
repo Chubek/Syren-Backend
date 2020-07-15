@@ -158,11 +158,18 @@ class MonitorService {
     }
 
 
+    fun getMonitor(id: String): Monitor {
+
+        val monitorDto = monitorDao.getMonitor(id)
+
+        return dtoMappers.monitorMapperEntity(monitorDto.get())
 
 
+    }
 
 
-
-
+    fun deleteMonitor(id: String) {
+        monitorDao.deleteMonitor(id)
+    }
 
 }

@@ -66,20 +66,26 @@ class ModeratorService {
            }
        }
 
-        val hash = passwordEncoder.encode(password)
 
         try {
-            assertTrue(hash == moderatorDto.password)
+            assertTrue(passwordEncoder.matches(password, moderatorDto.password))
         } catch (e: Exception) {
             throw e
         }
+
 
         val token = jwt.createJwt(moderatorDto.id)
 
         return LoginReturn(dtoMappers.moderatorMapperEntity(moderatorDto), token)
     }
 
-    
+    fun deleteModerator(id: String) {
+        moderatorDao.deleteModerator(id)
+    }
+
+    fun getModerator(id: String): Moderator {
+        return dtoMappers.moderatorMapperEntity(moderatorDao.getModerator(id).get())
+    }
 
 }
 
