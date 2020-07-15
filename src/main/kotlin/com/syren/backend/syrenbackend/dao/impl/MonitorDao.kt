@@ -3,7 +3,6 @@ package com.syren.backend.syrenbackend.dao.impl
 import com.syren.backend.syrenbackend.dao.intf.MonitorDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.MonitorDto
 import com.syren.backend.syrenbackend.repository.display.MonitorRepository
-import org.graalvm.compiler.lir.CompositeValue
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.stereotype.Component
