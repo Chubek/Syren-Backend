@@ -21,6 +21,9 @@ class ScheduleService {
 
         val schedule = Schedule(streamId = streamId, playDates = scheduleDatesList!!.toMutableList())
 
+        val scheduleDto = dtoMappers.scheduleMapperDto(schedule)
+
+        return scheduleDao.createSchedule(scheduleDto)
 
     }
 
