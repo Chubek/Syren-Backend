@@ -27,4 +27,46 @@ class ScheduleService {
 
     }
 
+    fun editStreamId(id: String, streamId: String) {
+        val scheduleDto = scheduleDao.getSchedule(id)
+
+        var schedule = dtoMappers.scheduleMapperEntity(scheduleDto.get())
+
+        schedule.streamId = streamId
+
+        scheduleDao.updateSchedule(dtoMappers.scheduleMapperDto(schedule))
+
+    }
+
+    fun addDateToSchedule(id: String, dateJson: String) {
+
+        val scheduleDate = Klaxon().parse<ScheduleDate>(dateJson)
+
+        val scheduleDto = scheduleDao.getSchedule(id)
+
+        var schedule = dtoMappers.scheduleMapperEntity(scheduleDto.get())
+
+        schedule.playDates.add(scheduleDate!!)
+
+        scheduleDao.updateSchedule(dtoMappers.scheduleMapperDto(schedule))
+    }
+
+    fun remoteDateFromSchedule(id: String, dateJson: String) {
+
+        val scheduleDate = Klaxon().parse<ScheduleDate>(dateJson)
+
+        val scheduleDto = scheduleDao.getSchedule(id)
+
+        var schedule = dtoMappers.scheduleMapperEntity(scheduleDto.get())
+
+        schedule.playDates.filter { it != scheduleDate }
+
+        scheduleDao.updateSchedule(dtoMappers.scheduleMapperDto(schedule))
+    }
+
+    fun deleteSchedule(id: String) {
+
+        scheduleDao.deleteSchedule(id)
+    }
+
 }

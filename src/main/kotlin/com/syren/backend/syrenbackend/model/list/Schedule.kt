@@ -12,5 +12,5 @@ import java.util.*
 @Accessors(chain = true)
 @Document(collection = "playlist.schedule")
 data class Schedule(@Id val id: String = UUID.randomUUID().toString(),
-                    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) val streamId: String,
+                    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) var streamId: String,
                     val playDates: MutableList<ScheduleDate>)
