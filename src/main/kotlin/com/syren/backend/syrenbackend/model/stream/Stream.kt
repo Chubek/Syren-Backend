@@ -12,5 +12,5 @@ import java.util.*
 @Document(collection = "stream.stream")
 data class Stream(@Id val id: String = UUID.randomUUID().toString(),
                   @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) val playlistIds: MutableList<String>,
-                  val pathToTemplate: String
+                  var pathToTemplate: String
 )

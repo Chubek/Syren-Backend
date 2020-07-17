@@ -13,4 +13,4 @@ import java.util.*
 @Document(collection = "stream.override.message")
 data class OverrideMessage(@Id val id: String = UUID.randomUUID().toString(),
                            @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-                           val notificationAlert: NotificationAlert)
+                           var notificationAlert: NotificationAlert)

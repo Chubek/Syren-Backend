@@ -12,4 +12,4 @@ import java.util.*
 @Document(collection = "stream.override.resource")
 data class OverrideResource(@Id val id: String = UUID.randomUUID().toString(),
                             @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-                            val resourceId: String)
+                            var resourceId: String)
