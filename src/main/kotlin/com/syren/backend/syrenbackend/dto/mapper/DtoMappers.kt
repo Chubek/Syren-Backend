@@ -5,6 +5,7 @@ import com.syren.backend.syrenbackend.model.display.Monitor
 import com.syren.backend.syrenbackend.model.list.PlayList
 import com.syren.backend.syrenbackend.model.list.Schedule
 import com.syren.backend.syrenbackend.model.moderator.Moderator
+import com.syren.backend.syrenbackend.model.ownership.Ownership
 import com.syren.backend.syrenbackend.model.resource.*
 import com.syren.backend.syrenbackend.model.stream.OverrideMessage
 import com.syren.backend.syrenbackend.model.stream.OverrideResource
@@ -54,6 +55,10 @@ class DtoMappers {
         return modelMapper.map(widgetResource, WidgetResourceDto::class.java)
     }
 
+    fun ownershipMapperDto(ownership: Ownership): OwnershipDto {
+        return modelMapper.map(ownership, OwnershipDto::class.java)
+    }
+
     fun monitorMapperEntity(monitorDto: MonitorDto): Monitor {
         return modelMapper.map(monitorDto, Monitor::class.java)
     }
@@ -83,6 +88,9 @@ class DtoMappers {
     }
     fun widgetResourceMapperEntity(widgetResourceDto: WidgetResourceDto): WidgetResource {
         return modelMapper.map(widgetResourceDto, WidgetResource::class.java)
+    }
+    fun ownershipMapperEntity(ownershipDto: OwnershipDto): Ownership {
+        return modelMapper.map(ownershipDto, Ownership::class.java)
     }
 
 

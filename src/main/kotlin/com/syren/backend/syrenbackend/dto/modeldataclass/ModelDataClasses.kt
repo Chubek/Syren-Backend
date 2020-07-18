@@ -7,6 +7,7 @@ import com.syren.backend.syrenbackend.subschema.dataclass.info.MonitorInformatio
 import com.syren.backend.syrenbackend.subschema.dataclass.info.TemplateInfo
 import com.syren.backend.syrenbackend.subschema.dataclass.records.*
 import com.syren.backend.syrenbackend.subschema.enumclass.MediaType
+import java.util.*
 
 data class MonitorDto(val Id: String, val currentStreamId: String, val formerStreams: MutableList<MonitorRecord>, val defaultStreamId: String, val accessPhrase: String, val information: MonitorInformation)
 data class PlayListDto(val id: String, val items: MutableList<String>)
@@ -19,3 +20,6 @@ data class OverrideMessageDto(val id: String, val name: String, val notification
 data class OverrideResourceDto(val id: String, val resourceId: String)
 data class StreamDto(val id: String, val playlistIds: MutableList<String>, val pathToTemplate: String)
 data class StreamLayoutTemplateDto(val id: String, val templateInfo: TemplateInfo, val fileLocation: String)
+data class OwnershipDto(val id: String = UUID.randomUUID().toString(), val moderatorId: String, val mediaResourcesList: MutableList<String>,
+                     val scriptResourcesList: MutableList<String>, val overrideMessagesList: MutableList<String>, val overrideResourcesList: MutableList<String>,
+                     val streamsList: MutableList<String>, val playListsList: MutableList<String>, val scheduleLists: MutableList<String>)

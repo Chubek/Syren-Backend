@@ -28,7 +28,7 @@ class WebPageResourceDao: ScriptResourceDaoInterface<WebPageResourceDto> {
         webPageResourceRepository.deleteById(id)
     }
 
-    override fun updateScriptResource(id: String, scriptResourceDto: WebPageResourceDto) {
+    override fun updateScriptResource(scriptResourceDto: WebPageResourceDto) {
         webPageResourceRepository.save(scriptResourceDto)
     }
 

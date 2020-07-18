@@ -6,7 +6,7 @@ interface ScriptResourceDaoInterface<T> {
 
     fun createScriptResource(scriptResourceDto: T): String
 
-    fun updateScriptResource(id: String, scriptResourceDto: T)
+    fun updateScriptResource(scriptResourceDto: T)
 
     fun getScriptResource(id: String): Optional<T>
 

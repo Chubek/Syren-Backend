@@ -12,5 +12,4 @@ import java.util.*
 @Accessors(chain = true)
 @Document(collection = "resource.html")
 data class WebPageResource(@Id val id: String = UUID.randomUUID().toString(),
-                           @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) val record: MutableList<ResourceRecord>,
-                           val htmlFilePath: String)
+                           @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) var htmlFilePath: String)

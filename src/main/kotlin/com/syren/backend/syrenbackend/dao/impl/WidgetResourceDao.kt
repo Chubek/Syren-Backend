@@ -28,7 +28,7 @@ class WidgetResourceDao: ScriptResourceDaoInterface<WidgetResourceDto> {
         widgetResourceRepository.deleteById(id)
     }
 
-    override fun updateScriptResource(id: String, scriptResourceDto: WidgetResourceDto) {
+    override fun updateScriptResource(scriptResourceDto: WidgetResourceDto) {
         widgetResourceRepository.save(scriptResourceDto)
     }
 

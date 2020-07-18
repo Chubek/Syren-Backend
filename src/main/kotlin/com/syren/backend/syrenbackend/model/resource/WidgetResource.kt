@@ -12,5 +12,5 @@ import java.util.*
 @Accessors(chain = true)
 @Document(collection = "playlist.playlist")
 data class WidgetResource(@Id val id: String = UUID.randomUUID().toString(),
-                          @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) val name: String,
-                          val javaScriptFileLocation: String)
+                          @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) var name: String,
+                          var javaScriptFileLocation: String)
