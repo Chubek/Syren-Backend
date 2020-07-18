@@ -4,7 +4,12 @@ import com.syren.backend.syrenbackend.dao.impl.WebPageResourceDao
 import com.syren.backend.syrenbackend.dto.mapper.DtoMappers
 import com.syren.backend.syrenbackend.model.resource.WebPageResource
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.ComponentScan
+import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
+@Service
+@ComponentScan
 class WebPageResourceService {
 
     @Autowired

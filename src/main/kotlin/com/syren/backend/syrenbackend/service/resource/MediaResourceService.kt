@@ -3,13 +3,17 @@ package com.syren.backend.syrenbackend.service.resource
 import com.syren.backend.syrenbackend.dao.impl.MediaResourceDao
 import com.syren.backend.syrenbackend.dto.mapper.DtoMappers
 import com.syren.backend.syrenbackend.model.resource.MediaResource
-import com.syren.backend.syrenbackend.repository.resource.MediaResourceRepository
 import com.syren.backend.syrenbackend.subschema.dataclass.info.FileInfo
 import com.syren.backend.syrenbackend.subschema.enumclass.MediaType
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.ComponentScan
+import org.springframework.stereotype.Service
 import java.time.Instant
 import java.util.*
 
+
+@Service
+@ComponentScan
 class MediaResourceService {
 
     @Autowired

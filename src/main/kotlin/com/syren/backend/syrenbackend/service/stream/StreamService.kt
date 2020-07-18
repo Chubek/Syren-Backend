@@ -4,7 +4,12 @@ import com.syren.backend.syrenbackend.dao.impl.StreamDao
 import com.syren.backend.syrenbackend.dto.mapper.DtoMappers
 import com.syren.backend.syrenbackend.model.stream.Stream
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.ComponentScan
+import org.springframework.stereotype.Service
 
+
+@Service
+@ComponentScan
 class StreamService {
 
     @Autowired

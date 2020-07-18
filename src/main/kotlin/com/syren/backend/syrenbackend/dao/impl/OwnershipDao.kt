@@ -4,7 +4,12 @@ import com.syren.backend.syrenbackend.dao.intf.OwnershipDaoInterface
 import com.syren.backend.syrenbackend.dto.modeldataclass.OwnershipDto
 import com.syren.backend.syrenbackend.repository.ownership.OwnershipRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.ComponentScan
+import org.springframework.stereotype.Component
 
+
+@Component
+@ComponentScan
 class OwnershipDao: OwnershipDaoInterface {
 
     @Autowired

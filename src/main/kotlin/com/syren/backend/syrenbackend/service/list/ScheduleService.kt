@@ -1,12 +1,15 @@
 package com.syren.backend.syrenbackend.service.list
 
-import com.beust.klaxon.Klaxon
 import com.syren.backend.syrenbackend.dao.impl.ScheduleDao
 import com.syren.backend.syrenbackend.dto.mapper.DtoMappers
 import com.syren.backend.syrenbackend.model.list.Schedule
 import com.syren.backend.syrenbackend.subschema.dataclass.ScheduleDate
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.ComponentScan
+import org.springframework.stereotype.Service
 
+@Service
+@ComponentScan
 class ScheduleService {
 
     @Autowired
@@ -15,11 +18,9 @@ class ScheduleService {
     @Autowired
     private lateinit var dtoMappers: DtoMappers
 
-    fun createSchedule(streamId: String, scheduleDateJson: String): String {
+    fun createSchedule(streamId: String, scheduleDate: MutableList<ScheduleDate>): String {
 
-        val scheduleDatesList = Klaxon().parseArray<ScheduleDate>(scheduleDateJson)
-
-        val schedule = Schedule(streamId = streamId, playDates = scheduleDatesList!!.toMutableList())
+        val schedule = Schedule(streamId = streamId, playDates = scheduleDate)
 
         val scheduleDto = dtoMappers.scheduleMapperDto(schedule)
 
@@ -38,28 +39,24 @@ class ScheduleService {
 
     }
 
-    fun addDateToSchedule(id: String, dateJson: String) {
-
-        val scheduleDate = Klaxon().parse<ScheduleDate>(dateJson)
+    fun addDateToSchedule(id: String, date: ScheduleDate) {
 
         val scheduleDto = scheduleDao.getSchedule(id)
 
         var schedule = dtoMappers.scheduleMapperEntity(scheduleDto.get())
 
-        schedule.playDates.add(scheduleDate!!)
+        schedule.playDates.add(date)
 
         scheduleDao.updateSchedule(dtoMappers.scheduleMapperDto(schedule))
     }
 
-    fun remoteDateFromSchedule(id: String, dateJson: String) {
-
-        val scheduleDate = Klaxon().parse<ScheduleDate>(dateJson)
+    fun remoteDateFromSchedule(id: String, date: ScheduleDate) {
 
         val scheduleDto = scheduleDao.getSchedule(id)
 
         var schedule = dtoMappers.scheduleMapperEntity(scheduleDto.get())
 
-        schedule.playDates.filter { it != scheduleDate }
+        schedule.playDates.filter { it != date }
 
         scheduleDao.updateSchedule(dtoMappers.scheduleMapperDto(schedule))
     }
