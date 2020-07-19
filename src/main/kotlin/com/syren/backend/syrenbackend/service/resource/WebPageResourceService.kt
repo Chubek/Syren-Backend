@@ -36,6 +36,12 @@ class WebPageResourceService {
         webPageResourceDao.updateScriptResource(dtoMappers.webPageResourceMapperDto(webPageResource))
     }
 
+    fun getWebPageResource(id: String): WebPageResource {
+
+        return dtoMappers.webPageResourceMapperEntity(webPageResourceDao.getScriptResource(id).get())
+
+    }
+
     fun deleteWebPageResource(id: String) {
         webPageResourceDao.deleteScriptResource(id)
     }

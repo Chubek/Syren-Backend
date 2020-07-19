@@ -1,9 +1,10 @@
 package com.syren.backend.syrenbackend.controller.resource
 
-import com.syren.backend.syrenbackend.model.resource.WidgetResource
+import com.syren.backend.syrenbackend.model.resource.MediaResource
+import com.syren.backend.syrenbackend.model.resource.WebPageResource
 import com.syren.backend.syrenbackend.service.file.LocalStorageService
 import com.syren.backend.syrenbackend.service.ownership.OwnershipService
-import com.syren.backend.syrenbackend.service.resource.WidgetResourceService
+import com.syren.backend.syrenbackend.service.resource.WebPageResourceService
 import com.syren.backend.syrenbackend.service.security.JWTComponent
 import org.springframework.http.HttpStatus
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,8 +15,8 @@ import org.springframework.web.multipart.MultipartFile
 
 
 @Controller
-@RequestMapping("/widget")
-class WidgetResourceController {
+@RequestMapping("/webPage")
+class WebPagetResourceController {
 
     private lateinit var storageService: LocalStorageService
 
@@ -31,7 +32,7 @@ class WidgetResourceController {
     private lateinit var jwtComponent: JWTComponent
 
     @Autowired
-    private lateinit var widgetResourceService: WidgetResourceService
+    private lateinit var webPageResourceService: WebPageResourceService
 
 
     @PostMapping("/create/{name}")
@@ -43,17 +44,18 @@ class WidgetResourceController {
         val ownership = ownershipService.getOwnership(moderatorId)
 
         storageService.store(file)
-        val id = widgetResourceService.createWidgetResource(file.name, name)
+        val id = webPageResourceService.createWebPageResource(file.name)
 
         ownership.scriptResourcesList.add(id)
 
         return id
     }
 
-    @PutMapping("/updateName/{id}/{newName}")
+    @PutMapping("/updateName/{id}")
     @ResponseBody
-    fun updateWidgetName(@PathVariable id: String, @PathVariable newName: String,
-                         @RequestHeader("x-auth-token") token: String): ResponseEntity<String> {
+    fun updateWebPage(@RequestParam("file") file: MultipartFile,
+                      @PathVariable id: String,
+                      @PathVariable name: String, @RequestHeader("x-auth-token") token: String): ResponseEntity<String> {
 
         val moderatorId = jwtComponent.decodeJwt(token)
 
@@ -63,14 +65,26 @@ class WidgetResourceController {
             return ResponseEntity(HttpStatus.FORBIDDEN)
         }
 
-        widgetResourceService.updateWidgetResourceName(id, newName)
+        storageService.store(file)
+
+        webPageResourceService.updateWebPageResource(id, file.name)
         return ResponseEntity(HttpStatus.ACCEPTED)
 
     }
 
-    @DeleteMapping("/deleteWidget/{id}")
+
+    @GetMapping("/get/{id}")
     @ResponseBody
-    fun deleteWidgetResource(@PathVariable id: String, @RequestHeader("x-auth-token") token: String): ResponseEntity<String> {
+    fun getMediaResource(@PathVariable id: String): WebPageResource {
+
+        return webPageResourceService.getWebPageResource(id)
+
+    }
+    
+
+    @DeleteMapping("/deleteWebPage/{id}")
+    @ResponseBody
+    fun deleteWebPageResource(@PathVariable id: String, @RequestHeader("x-auth-token") token: String): ResponseEntity<String> {
 
         val moderatorId = jwtComponent.decodeJwt(token)
 
@@ -79,7 +93,7 @@ class WidgetResourceController {
         if (!ownership.scriptResourcesList.contains(id)) {
             return ResponseEntity(HttpStatus.FORBIDDEN)        }
 
-        widgetResourceService.deleteWidgetResource(id)
+        webPageResourceService.deleteWebPageResource(id)
         return ResponseEntity(HttpStatus.GONE)
 
     }
