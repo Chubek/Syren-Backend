@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import com.auth0.jwt.exceptions.JWTCreationException
 import com.auth0.jwt.exceptions.JWTVerificationException
+import com.syren.backend.syrenbackend.service.file.LocalStorageService
 import org.modelmapper.ModelMapper
 import org.modelmapper.convention.NamingConventions
 import org.springframework.beans.factory.annotation.Value
@@ -36,5 +37,6 @@ class AppConfig {
     fun passwordEncoder(): PasswordEncoder? {
         return BCryptPasswordEncoder()
     }
+
 
 }

@@ -45,6 +45,11 @@ class MediaResourceService {
     }
 
 
+    fun deleteMediaResource(id: String) {
+        mediaResourceDao.deleteResource(id)
+    }
+
+
 
 
 

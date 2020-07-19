@@ -211,5 +211,12 @@ class OwnershipService {
 
     }
 
+    fun getOwnership(moderatorId: String): Ownership {
+
+        val ownershipDto = ownershipDao.getOwnershipByModeratorId(moderatorId)
+
+        return dtoMappers.ownershipMapperEntity(ownershipDto)
+    }
+
 
 }

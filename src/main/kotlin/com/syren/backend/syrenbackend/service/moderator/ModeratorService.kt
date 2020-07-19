@@ -5,7 +5,7 @@ import com.syren.backend.syrenbackend.dao.impl.ModeratorDao
 import com.syren.backend.syrenbackend.dto.mapper.DtoMappers
 import com.syren.backend.syrenbackend.dto.modeldataclass.ModeratorDto
 import com.syren.backend.syrenbackend.model.moderator.Moderator
-import com.syren.backend.syrenbackend.service.security.JWT
+import com.syren.backend.syrenbackend.service.security.JWTComponent
 import com.syren.backend.syrenbackend.subschema.LoginReturn
 import org.apache.catalina.core.ApplicationContext
 import org.springframework.beans.factory.annotation.Autowired
@@ -23,7 +23,7 @@ class ModeratorService {
     private lateinit var moderatorDao: ModeratorDao
 
     @Autowired
-    private lateinit var jwt: JWT
+    private lateinit var jwtComponent: JWTComponent
 
     @Autowired
     private lateinit var passwordEncoder: PasswordEncoder
@@ -74,7 +74,7 @@ class ModeratorService {
         }
 
 
-        val token = jwt.createJwt(moderatorDto.id)
+        val token = jwtComponent.createJwt(moderatorDto.id)
 
         return LoginReturn(dtoMappers.moderatorMapperEntity(moderatorDto), token)
     }
