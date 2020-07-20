@@ -50,7 +50,7 @@ class ScheduleService {
         scheduleDao.updateSchedule(dtoMappers.scheduleMapperDto(schedule))
     }
 
-    fun remoteDateFromSchedule(id: String, date: ScheduleDate) {
+    fun removeDateFromSchedule(id: String, date: ScheduleDate) {
 
         val scheduleDto = scheduleDao.getSchedule(id)
 
@@ -64,6 +64,12 @@ class ScheduleService {
     fun deleteSchedule(id: String) {
 
         scheduleDao.deleteSchedule(id)
+    }
+
+    fun getSchedule(id: String): Schedule {
+
+        return dtoMappers.scheduleMapperEntity(scheduleDao.getSchedule(id).get())
+
     }
 
 }

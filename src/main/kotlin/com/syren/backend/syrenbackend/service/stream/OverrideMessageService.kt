@@ -42,4 +42,9 @@ class OverrideMessageService {
         overrideMessageDao.deleteOverrideMessage(id)
     }
 
+    fun getOverrideMessage(id: String): OverrideMessage {
+
+        return dtoMappers.overrideMessageMapperEntity(overrideMessageDao.getOverrideMessage(id).get())
+    }
+
 }

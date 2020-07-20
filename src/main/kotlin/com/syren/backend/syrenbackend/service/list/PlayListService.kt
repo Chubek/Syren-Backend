@@ -55,4 +55,11 @@ class PlayListService {
         return dtoMappers.playListMapperEntity(playListDao.getPlayList(id).get())
     }
 
+    fun deletePlayList(id: String) {
+
+        playListDao.deletePlayList(id)
+
+    }
+
+
 }
