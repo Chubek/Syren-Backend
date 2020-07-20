@@ -41,4 +41,11 @@ class OverrideResourceService {
         overrideResourceDao.deleteOverrideResource(id)
     }
 
+
+    fun getOverrideResource(id: String): OverrideResource {
+
+        return dtoMappers.overrideResourceMapperEntity(overrideResourceDao.getOverrideResource(id).get())
+
+    }
+
 }

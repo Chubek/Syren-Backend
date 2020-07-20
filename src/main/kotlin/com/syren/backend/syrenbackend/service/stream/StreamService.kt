@@ -65,7 +65,14 @@ class StreamService {
 
     }
 
-    fun deletePlayList(id: String) {
+    fun getStream(id: String): Stream {
+
+        return dtoMappers.streamMapperEntity(streamDao.getStream(id).get())
+
+
+    }
+
+    fun deleteStream(id: String) {
         streamDao.deleteStream(id)
     }
 
