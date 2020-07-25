@@ -13,4 +13,4 @@ import java.util.*
 data class Ownership(@Id val id: String = UUID.randomUUID().toString(),
                      @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) val moderatorId: String, val mediaResourcesList: MutableList<String>,
                      val scriptResourcesList: MutableList<String>, val overrideMessagesList: MutableList<String>, val overrideResourcesList: MutableList<String>,
-                     val streamsList: MutableList<String>, val playListsList: MutableList<String>, val scheduleLists: MutableList<String>)
+                     val streamsList: MutableList<String>, val playListsList: MutableList<String>, val monitorList: MutableList<String>, val scheduleLists: MutableList<String>)

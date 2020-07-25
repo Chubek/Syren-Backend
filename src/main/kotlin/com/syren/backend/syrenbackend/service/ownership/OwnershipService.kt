@@ -22,7 +22,7 @@ class OwnershipService {
 
         val ownership = Ownership(moderatorId = moderatorId, mediaResourcesList = mutableListOf(), scheduleLists = mutableListOf(),
                 scriptResourcesList = mutableListOf(), overrideMessagesList = mutableListOf(), overrideResourcesList = mutableListOf(),
-                playListsList = mutableListOf(), streamsList = mutableListOf())
+                playListsList = mutableListOf(), streamsList = mutableListOf(), monitorList = mutableListOf())
 
         return ownershipDao.createOwnership(dtoMappers.ownershipMapperDto(ownership))
 
@@ -119,6 +119,19 @@ class OwnershipService {
 
     }
 
+    fun addToMonitorList(moderatorId: String, monitorId: String) {
+
+        val ownershipDto = ownershipDao.getOwnershipByModeratorId(moderatorId)
+
+        var ownership = dtoMappers.ownershipMapperEntity(ownershipDto)
+
+        ownership.monitorList.add(monitorId)
+
+        ownershipDao.updateOwnership(dtoMappers.ownershipMapperDto(ownership))
+
+
+    }
+
     fun removeFromOwnershipMediaList(moderatorId: String, resourceId: String) {
 
         val ownershipDto = ownershipDao.getOwnershipByModeratorId(moderatorId)
@@ -205,6 +218,19 @@ class OwnershipService {
         var ownership = dtoMappers.ownershipMapperEntity(ownershipDto)
 
         ownership.playListsList.filter { it != playlistId }
+
+        ownershipDao.updateOwnership(dtoMappers.ownershipMapperDto(ownership))
+
+
+    }
+
+    fun removeFromMonitorList(moderatorId: String, monitorId: String) {
+
+        val ownershipDto = ownershipDao.getOwnershipByModeratorId(moderatorId)
+
+        var ownership = dtoMappers.ownershipMapperEntity(ownershipDto)
+
+        ownership.monitorList.filter { it != monitorId }
 
         ownershipDao.updateOwnership(dtoMappers.ownershipMapperDto(ownership))
 
